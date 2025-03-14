@@ -192,9 +192,14 @@ class _TankScreen1State extends State<TankScreen1> {
                   ),
                 ),
                 leftTitles: AxisTitles(
+                  // axisNameWidget: Text("Percentage"),
+                  axisNameWidget: Icon(Icons.add_a_photo),
+                  axisNameSize: 29,
+                  drawBelowEverything: true,
                   sideTitles: SideTitles(
                     showTitles: true,
                     getTitlesWidget: _leftTitle,
+                    // reservedSize: 20,
                   ),
                 ),
                 topTitles: AxisTitles(
@@ -238,6 +243,7 @@ class _TankScreen1State extends State<TankScreen1> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
+         
         ),
       ],
     );
