@@ -4,6 +4,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class QRGeneratorScreen1 extends StatelessWidget {
   final String phoneNumber = "+1234567890"; // Change this to your desired number
+  final String defaultMessage = "?T1"; // Default message
+
 
   // Function to make a phone call
   Future<void> _makeCall(String phoneNumber) async {
@@ -16,14 +18,15 @@ class QRGeneratorScreen1 extends StatelessWidget {
   }
 
   // Function to send an SMS
-  Future<void> _sendSMS(String phoneNumber) async {
-    Uri uri = Uri.parse("sms:$phoneNumber");
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      throw "Could not send SMS to $phoneNumber";
-    }
+  Future<void> _sendSMS(String phoneNumber, String message) async {
+  Uri uri = Uri.parse("sms:$phoneNumber?body=${Uri.encodeComponent(message)}");
+  if (await canLaunchUrl(uri)) {
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  } else {
+    throw "Could not send SMS to $phoneNumber";
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +56,9 @@ class QRGeneratorScreen1 extends StatelessWidget {
 
             /// ✅ Clickable QR Code for SMS
             GestureDetector(
-              onTap: () => _sendSMS(phoneNumber), // Tap to SMS
+              onTap: () => _sendSMS(phoneNumber, defaultMessage), // Tap to SMS
               child: QrImageView(
-                data: "sms:$phoneNumber", // Scannable for SMS
+                 data: "sms:$phoneNumber?body=${Uri.encodeComponent(defaultMessage)}", // Scannable for SMS
                 version: QrVersions.auto,
                 size: 150.0,
               ),
