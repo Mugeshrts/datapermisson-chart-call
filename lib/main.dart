@@ -6,6 +6,7 @@ import 'package:tank_monetering/chart/Syncfusion/OHLC.dart';
 import 'package:tank_monetering/chart/Syncfusion/areachart.dart';
 import 'package:tank_monetering/chart/Syncfusion/linechart.dart';
 import 'package:tank_monetering/chart/chart.dart';
+import 'package:tank_monetering/chart/tankmoniterringsplash.dart/splash1.dart';
 import 'package:tank_monetering/landing/landingbloc.dart';
 import 'package:tank_monetering/splash/splashui.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OhlcChartScreen()
+      home: SplashUi()
     );
   }
 }
