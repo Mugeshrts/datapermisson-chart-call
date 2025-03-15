@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:tank_monetering/chart/Syncfusion/Barchart.dart';
-import 'package:tank_monetering/chart/Syncfusion/OHLC.dart';
-import 'package:tank_monetering/chart/Syncfusion/areachart.dart';
-import 'package:tank_monetering/chart/Syncfusion/linechart.dart';
-import 'package:tank_monetering/chart/chart.dart';
-import 'package:tank_monetering/chart/tankmoniterringsplash.dart/splash1.dart';
+import 'package:tank_monetering/URL_launcher/urllauncher.dart';
+import 'package:tank_monetering/URL_launcher/urllaunchersms.dart';
 import 'package:tank_monetering/landing/landingbloc.dart';
-import 'package:tank_monetering/splash/splashui.dart';
 
 
 void main() {
@@ -26,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashUi()
+      home: QRGeneratorScreen1()
     );
   }
 }
